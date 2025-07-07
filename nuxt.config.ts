@@ -8,12 +8,18 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   modules: [
+    "@nuxt/eslint",
     (_options,nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         config.plugins?.push(vuetify({autoImport: true}))
       })
-    }
+    },
   ],
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
   vite: {
     vue: {
       template:{ 
