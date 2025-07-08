@@ -1,11 +1,9 @@
-import {
-  createConfigForNuxt,
-} from "@nuxt/eslint-config/flat";
+import withNuxt from "./.nuxt/eslint.config.mjs";
 import stylistic from "@stylistic/eslint-plugin";
 
 
 
-/** @type {import("eslint").Linter.FlatConfig} */
+/** @type {import("eslint").Linter.Config} */
 const importConfig = {
   rules: {
     // Import Rules
@@ -20,33 +18,14 @@ const importConfig = {
         count: 3,
       },
     ],
-    "import/no-absolute-path": [
-      "error",
-    ],
     "import/no-mutable-exports": [
       "error",
     ],
-    "import/no-useless-path-segments": [
-      "error",
-    ],
-    "import/order": [
-      "error", {
-        "groups": [
-          "builtin",
-          "external",
-        ],
-        "newlines-between": "always",
-        "alphabetize": {
-          order: "asc",
-          orderImportKind: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
+
   },
 };
 
-/** @type {import("eslint").Linter.FlatConfig} */
+/** @type {import("eslint").Linter.Config} */
 const vueConfig = {
   rules: {
     "vue/html-indent": [
@@ -55,16 +34,14 @@ const vueConfig = {
   },
 };
 
-/** @type {import("eslint").Linter.FlatConfig} */
+/** @type {import("eslint").Linter.Config} */
 const tsConfig = {
   rules: {
     "@typescript-eslint/consistent-type-imports": "error",
   },
 };
 
-
-
-export default createConfigForNuxt()
+export default withNuxt()
   .append([
     // Stylistic Rules.
     stylistic.configs.customize({
@@ -151,15 +128,18 @@ export default createConfigForNuxt()
           2,
           {
             ignoredNodes: [
-              "ArrayExpression" > "ObjectExpression",
+              "ArrayExpression > ObjectExpression",
             ],
           },
+        ],
+        "@stylistic/semi": [
+          "warn", "always",
         ],
       },
     },
     {
       ignores: [
-        "generated/graphql",
+        "generated/graphql", "dist", "node_modules", "schema", "**/*.tmpl.*", "sw.js",
       ],
     },
   ])

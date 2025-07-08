@@ -2,15 +2,19 @@
 import "@mdi/font/css/materialdesignicons.css";
 
 import "vuetify/styles";
-import { createVuetify } from "vuetify";
-import { VBtn, VCard } from "vuetify/components";
+import {
+  createVuetify,
+} from "vuetify";
+import {
+  VBtn, VCard,
+} from "vuetify/components";
 
 
 
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
     theme: {
-      defaultTheme: import.meta.dev ? "solarizeDark" : "purple",
+      defaultTheme: import.meta.dev ? "solarizeDark" : "solarizeDark",
       themes: {
         purple: {
           dark: true,
@@ -42,7 +46,9 @@ export default defineNuxtPlugin((app) => {
         },
       },
       variations: {
-        colors: [ "error", "success", "info" ],
+        colors: [
+          "error", "success", "info",
+        ],
         lighten: 5,
         darken: 5,
       },
@@ -57,10 +63,14 @@ export default defineNuxtPlugin((app) => {
         color: "surface",
       },
       VCardTitle: {
-        style: [ "text-wrap: wrap;" ],
+        style: [
+          "text-wrap: wrap;",
+        ],
       },
       VCardActions: {
-        class: [ "justify-end" ],
+        class: [
+          "justify-end",
+        ],
       },
       VCardText: {
         VCard: {
@@ -70,7 +80,9 @@ export default defineNuxtPlugin((app) => {
       },
       VChip: {
         rounded: "0",
-        class: [ "rounded" ],
+        class: [
+          "rounded",
+        ],
         elevation: 2,
         variant: "elevated",
         color: "primary",
