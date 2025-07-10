@@ -8,17 +8,20 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore .",
+    "gen": "bun run generate",
+    "prep": "bun run postinstall"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint": "1.5.2",
     "@nuxt/scripts": "0.11.9",
+    "@sidebase/nuxt-auth": "1.0.0",
     "@unhead/vue": "^2.0.3",
     "eslint": "^9.30.1",
     "google-auth-library": "^10.1.0",
+    "next-auth": "4.21.1",
     "nuxt": "^3.17.6",
-    "nuxt-auth-utils": "0.5.20",
     "nuxt-typed-router": "4.0.1",
     "nuxt-vue3-google-signin": "0.0.11",
     "prettier": "^2.5.x || 3.x",

@@ -6,6 +6,7 @@ import vuetify, {
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
+    "@sidebase/nuxt-auth",
     "nuxt-vue3-google-signin",
     "@nuxt/eslint",
     (_options, nuxt) => {
@@ -20,11 +21,12 @@ export default defineNuxtConfig({
     enabled: true,
   },
   runtimeConfig: {
-    oauth: {
-      google: {
-        clientId: process.env.NUXT_OAUTH_GOOGLE_CLIENT_ID,
-        clientSecret: process.env.NUXT_OAUTH_GOOGLE_CLIENT_SECRET,
-        redirectURL: process.env.GOOGLE_WEB_REDIRECT_URI,
+    google: {
+      clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
+    },
+    public: {
+      googleSignIn: {
+        clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
       },
     },
   },
@@ -41,12 +43,20 @@ export default defineNuxtConfig({
       },
     },
   },
+  auth: {
+    provider: {
+      type: "authjs",
+      trustHost: false,
+      defaultProvider: "google",
+      addDefaultCallbackUrl: true,
+    },
+  },
   eslint: {
     config: {
       stylistic: true,
     },
   },
   googleSignIn: {
-    clientId: process.env.GOOGLE_WEB_CLIENT_ID,
+    clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
   },
 });
