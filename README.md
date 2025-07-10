@@ -25,11 +25,19 @@ SOH currently uses Google Workspace for employee emails, using Google accounts f
 
 Process Steps:
 
-1. The *application* authenticates itself with Google.
-   1. If successful then it can access the Admin SDK Directory API using OAuth2.
-2. The application makes a request, via SDK users.get method, to the Admin SDK Directory API to get a user's information by their userKey (email or ID).
-3. UNSURE: The application makes a request to check if a user is within an organization.
-   1. The alternative would be the application makes this check using saved or recently retrieved organization info.
+The web app needs to perform an OAuth2.0 request using the [Authorization Code](https://developers.google.com/identity/oauth2/web/guides/use-code-model) method.
+
+1. The web app makes a request to Google's OAuth 2.0 server to start a user data permission request which opens a modal where the user is prompted for consent to access their data. The response is then sent from Google to the server.
+   1. The only information obtained by the web app is the user's email address, unique identifier, name, and organization membership, no other user information is ever obtained by the web app. Only the unique identifier and organization membership are actually used in web app's function.
+   2. The frontend elements of this step are handled via the [Vue3 Google Signin Module](https://github.com/wavezync/vue3-google-signin).
+2. The server validates the response by checking the following:
+   1. The response is a legitimate response from Google.
+      1. The primary security concern here is Cross Site Request Forgery (CSRF). More specifically, the concern is that a bad actor could just send a response to the web app that looks like its from Google and gain access.
+      2. At a minimum, the "[state](https://developers.google.com/identity/openid-connect/openid-connect#java)" query parameter for Google API requests should be utilized.
+   2. The user is a member of the stuartsoperahouse\.org Google Workspace.
+      1. How to achieve Guest access is TBD.
+   3. The user approved the permissions requested by the web app.
+3. If the response is successfully validated, then the user is directed to the actual web app.
 
 ## Objective 2: User Interface
 
