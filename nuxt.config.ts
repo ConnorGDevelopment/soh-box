@@ -21,13 +21,20 @@ export default defineNuxtConfig({
     enabled: true,
   },
   runtimeConfig: {
-    google: {
-      clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
-    },
     public: {
       googleSignIn: {
         clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
       },
+      box: {
+        clientId: process.env.NUXT_PUBLIC_BOX_CLIENT_ID,
+      },
+    },
+    authSecret: process.env.NUXT_AUTH_SECRET,
+    google: {
+      clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
+    },
+    box: {
+      clientSecret: process.env.NUXT_BOX_CLIENT_SECRET,
     },
   },
   build: {
@@ -50,6 +57,8 @@ export default defineNuxtConfig({
       defaultProvider: "google",
       addDefaultCallbackUrl: true,
     },
+    globalAppMiddleware: true,
+    baseURL: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
   },
   eslint: {
     config: {

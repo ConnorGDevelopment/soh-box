@@ -1,5 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
-
+// import BoxProvider from "next-auth/providers/box";
 import {
   NuxtAuthHandler,
 } from "#auth";
@@ -10,10 +10,13 @@ export default NuxtAuthHandler({
   // A secret string you define, to ensure correct encryption
   secret: useRuntimeConfig().authSecret,
   providers: [
-    // @ts-expect-error Use .default here for it to work during SSR.
-    GoogleProvider.default({
+    GoogleProvider({
       clientId: useRuntimeConfig().public.googleSignIn.clientId,
       clientSecret: useRuntimeConfig().google.clientSecret,
     }),
+    // BoxProvider({
+    //   clientId: useRuntimeConfig().public.box.clientId,
+    //   clientSecret: useRuntimeConfig().box.clientSecret,
+    // }),
   ],
 });

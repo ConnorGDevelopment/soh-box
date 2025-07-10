@@ -39,6 +39,13 @@ The web app needs to perform an OAuth2.0 request using the [Authorization Code](
    3. The user approved the permissions requested by the web app.
 3. If the response is successfully validated, then the user is directed to the actual web app.
 
+### Implementation Checklist
+
+- [ ] Login Page w/ Google Sign-in Button
+- [ ] Route Guard Middleware
+- [ ] Server Auth Endpoint and Validation (Excluding CSRF Protection)
+- [ ] Server Auth Response CSRF Protection
+
 ## Objective 2: User Interface
 
 ***[Documentation WIP]***

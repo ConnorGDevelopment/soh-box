@@ -1,10 +1,5 @@
 <template>
   <v-container>
-    <v-toolbar>
-      <v-toolbar-title>
-        Stuart's Opera House Box Portal
-      </v-toolbar-title>
-    </v-toolbar>
     <v-card>
       <v-card-text>
         <v-btn
@@ -41,5 +36,9 @@ const {
 } = useTokenClient({
   onSuccess: handleOnSuccess,
   onError: handleOnError,
+});
+
+definePageMeta({
+  auth: false,
 });
 </script>
