@@ -25,6 +25,7 @@ import type {
 
 const handleOnSuccess = (response: AuthCodeFlowSuccessResponse) => {
   console.log("Access Token: ", response.access_token);
+  navigateTo("/box");
 };
 
 const handleOnError = (errorResponse: AuthCodeFlowErrorResponse) => {
