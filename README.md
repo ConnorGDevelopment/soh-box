@@ -41,7 +41,7 @@ The web app needs to perform an OAuth2.0 request using the [Authorization Code](
 
 ### Implementation Checklist
 
-- [ ] Login Page w/ Google Sign-in Button
+- [X] Login Page w/ Google Sign-in Button (Functionality Only)
 - [ ] Route Guard Middleware
 - [ ] Server Auth Endpoint and Validation (Excluding CSRF Protection)
 - [ ] Server Auth Response CSRF Protection

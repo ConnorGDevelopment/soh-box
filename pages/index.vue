@@ -2,10 +2,7 @@
   <v-container>
     <v-card>
       <v-card-text>
-        <v-btn
-          :disabled="!isReady"
-          @click="() => login()"
-        >
+        <v-btn @click="signIn('google', { callbackUrl: '/box' })">
           Login with Google
         </v-btn>
       </v-card-text>
@@ -17,27 +14,9 @@
   lang="ts"
   setup
 >
-import type {
-  AuthCodeFlowErrorResponse, AuthCodeFlowSuccessResponse,
-} from "vue3-google-signin";
-
-
-
-const handleOnSuccess = (response: AuthCodeFlowSuccessResponse) => {
-  console.log("Access Token: ", response.access_token);
-  navigateTo("/box");
-};
-
-const handleOnError = (errorResponse: AuthCodeFlowErrorResponse) => {
-  console.log("Error: ", errorResponse);
-};
-
 const {
-  isReady, login,
-} = useTokenClient({
-  onSuccess: handleOnSuccess,
-  onError: handleOnError,
-});
+  signIn,
+} = useAuth();
 
 definePageMeta({
   auth: false,

@@ -7,7 +7,6 @@ import vuetify, {
 export default defineNuxtConfig({
   modules: [
     "@sidebase/nuxt-auth",
-    "nuxt-vue3-google-signin",
     "@nuxt/eslint",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -22,7 +21,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      googleSignIn: {
+      google: {
         clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
       },
       box: {
@@ -37,6 +36,7 @@ export default defineNuxtConfig({
       clientSecret: process.env.NUXT_BOX_CLIENT_SECRET,
     },
   },
+
   build: {
     transpile: [
       "vuetify",
@@ -49,23 +49,30 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+    server: {
+      hmr: {
+        protocol: "http",
+        host: "localhost",
+        clientPort: 3000,
+        port: 3000,
+      },
+    },
   },
   auth: {
+    isEnabled: true,
     provider: {
       type: "authjs",
-      trustHost: false,
       defaultProvider: "google",
-      addDefaultCallbackUrl: true,
     },
-    globalAppMiddleware: true,
-    baseURL: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
+    originEnvKey: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
+    baseURL: process.env.NUXT_PUBLIC_BASE_URL,
+    globalAppMiddleware: {
+      isEnabled: true,
+    },
   },
   eslint: {
     config: {
       stylistic: true,
     },
-  },
-  googleSignIn: {
-    clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
   },
 });

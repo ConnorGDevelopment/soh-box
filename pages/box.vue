@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <v-card>
-      Test
+      <v-card-text>
+        Box Dashboard
+      </v-card-text>
     </v-card>
   </v-container>
 </template>
@@ -10,5 +12,10 @@
   lang="ts"
   setup
 >
-
+definePageMeta({
+  auth: {
+    unauthenticatedOnly: false,
+    navigateUnauthenticatedTo: "/auth/signin",
+  },
+});
 </script>
