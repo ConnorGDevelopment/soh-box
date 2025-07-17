@@ -1,24 +1,18 @@
-import GoogleProvider, {
-  type GoogleProfile,
-} from "next-auth/providers/google";
+
 import {
   NuxtAuthHandler,
 } from "#auth";
-
+import Google, { type GoogleProfile } from "next-auth/providers/google";
 
 
 export default NuxtAuthHandler({
   // A secret string you define, to ensure correct encryption
   secret: useRuntimeConfig().authSecret,
   providers: [
-    GoogleProvider({
+    // @ts-expect-error For SSR
+    Google.default({
       clientId: useRuntimeConfig().public.google.clientId,
       clientSecret: useRuntimeConfig().google.clientSecret,
-      authorization: {
-        params: {
-          state: "test",
-        },
-      },
     }),
   ],
   session: {
@@ -33,6 +27,7 @@ export default NuxtAuthHandler({
       // Continue your process after getting the API token. Ex: Set the API token in cookies
 
       // TODO: Do an authentication request to backend here
+
 
       return token;
     },

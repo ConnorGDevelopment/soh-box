@@ -3,44 +3,6 @@ import stylistic from "@stylistic/eslint-plugin";
 
 
 
-/** @type {import("eslint").Linter.Config} */
-const importConfig = {
-  rules: {
-    // Import Rules
-    "import/consistent-type-specifier-style": [
-      "error", "prefer-top-level",
-    ],
-    "import/first": [
-      "error",
-    ],
-    "import/newline-after-import": [
-      "warn", {
-        count: 3,
-      },
-    ],
-    "import/no-mutable-exports": [
-      "error",
-    ],
-
-  },
-};
-
-/** @type {import("eslint").Linter.Config} */
-const vueConfig = {
-  rules: {
-    "vue/html-indent": [
-      "error", 2,
-    ],
-  },
-};
-
-/** @type {import("eslint").Linter.Config} */
-const tsConfig = {
-  rules: {
-    "@typescript-eslint/consistent-type-imports": "error",
-  },
-};
-
 export default withNuxt()
   .append([
     // Stylistic Rules.
@@ -135,14 +97,48 @@ export default withNuxt()
         "@stylistic/semi": [
           "warn", "always",
         ],
+        "@stylistic/implicit-arrow-linebreak": "below",
       },
     },
     {
       ignores: [
         "generated/graphql", "dist", "node_modules", "schema", "**/*.tmpl.*", "sw.js",
       ],
+      files: [
+        "**/*.{js,ts,vue}", "server/**/*.{js,ts}",
+      ],
     },
+
   ])
-  .override("nuxt/typescript/rules", tsConfig)
-  .override("nuxt/vue/rules", vueConfig)
-  .override("nuxt/import/rules", importConfig);
+  .override("nuxt/typescript/rules", {
+    rules: {
+      "@typescript-eslint/consistent-type-imports": "error",
+    },
+  })
+  .override("nuxt/vue/rules", {
+    rules: {
+      "vue/html-indent": [
+        "error", 2,
+      ],
+    },
+  })
+  .override("nuxt/import/rules", {
+    rules: {
+      // Import Rules
+      "import/consistent-type-specifier-style": [
+        "error", "prefer-top-level",
+      ],
+      "import/first": [
+        "error",
+      ],
+      "import/newline-after-import": [
+        "warn", {
+          count: 3,
+        },
+      ],
+      "import/no-mutable-exports": [
+        "error",
+      ],
+
+    },
+  });

@@ -2,20 +2,15 @@
   setup
   lang="ts"
 >
-import type {
-  NuxtError,
-} from "#app";
+// Remember to disable the middleware protection from your page!
+definePageMeta({
+  auth: { unauthenticatedOnly: true, navigateAuthenticatedTo: '/' }
+})
 
-
-
-defineProps({
-  error: Object as () => NuxtError,
-});
+const route = useRoute()
+const errorCode = computed(() => route.query.error)
 </script>
 
 <template>
-  <div>
-    <h1>{{ error?.statusCode }}</h1>
-    <NuxtLink to="/">Go back home</NuxtLink>
-  </div>
+  <h1> Authentication error {{ errorCode }}. Please try again! </h1>
 </template>

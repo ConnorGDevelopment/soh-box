@@ -68,11 +68,14 @@ export default defineNuxtConfig({
     baseURL: process.env.NUXT_PUBLIC_BASE_URL,
     globalAppMiddleware: {
       isEnabled: true,
-    },
+    }
   },
   eslint: {
     config: {
       stylistic: true,
     },
   },
+  typescript: {
+    strict: true
+  }
 });

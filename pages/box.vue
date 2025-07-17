@@ -2,7 +2,7 @@
   <v-container>
     <v-card>
       <v-card-text>
-        Box Dashboard
+        {{ token }}
       </v-card-text>
     </v-card>
   </v-container>
@@ -12,10 +12,7 @@
   lang="ts"
   setup
 >
-definePageMeta({
-  auth: {
-    unauthenticatedOnly: false,
-    navigateUnauthenticatedTo: "/auth/signin",
-  },
-});
+const headers = useRequestHeaders(['cookie']) as HeadersInit
+const { data: token } = await useFetch('/api/token', { headers })
+
 </script>
