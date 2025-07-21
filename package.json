@@ -18,6 +18,7 @@
     "@nuxt/scripts": "0.11.9",
     "@sidebase/nuxt-auth": "^1.0.0",
     "@unhead/vue": "^2.0.12",
+    "box-node-sdk": "^3.8.1",
     "eslint": "^9.31.0",
     "google-auth-library": "^10.1.0",
     "next-auth": "4.21.1",

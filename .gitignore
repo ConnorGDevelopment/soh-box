@@ -24,3 +24,4 @@ logs
 !.env.example
 
 scratch.ts
+soh-sandbox-jwt.key.json
