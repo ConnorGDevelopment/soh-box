@@ -9,6 +9,9 @@ declare global {
       NUXT_PUBLIC_BOX_CLIENT_ID: string;
       NUXT_BOX_CLIENT_SECRET: string;
 
+      NUXT_PUBLIC_BOX_SANDBOX_CCG_CLIENT_ID: string;
+      NUXT_BOX_CLIENT_SANDBOX_CCG_CLIENT_SECRET: string;
+
       NUXT_PUBLIC_BOX_KEY_ID: string;
       NUXT_BOX_PRIVATE_KEY: string;
       NUXT_BOX_PASSPHRASE: string;

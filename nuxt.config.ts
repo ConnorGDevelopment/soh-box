@@ -27,6 +27,11 @@ export default defineNuxtConfig({
       box: {
         clientId: process.env.NUXT_PUBLIC_BOX_CLIENT_ID,
         boxKeyId: process.env.NUXT_PUBLIC_BOX_KEY_ID,
+        sandbox: {
+          ccg: {
+            clientId: process.env.NUXT_PUBLIC_BOX_SANDBOX_CCG_CLIENT_ID
+          }
+        }
       },
     },
     authSecret: process.env.NUXT_AUTH_SECRET,
@@ -39,6 +44,11 @@ export default defineNuxtConfig({
       passphrase: process.env.NUXT_BOX_PASSPHRASE,
       enterpriseId: process.env.NUXT_BOX_ENTERPRISE_ID,
       developerToken: process.env.NUXT_BOX_DEVELOPER_TOKEN,
+      sandbox: {
+        ccg: {
+          clientSecret: process.env.NUXT_BOX_CLIENT_SANDBOX_CCG_CLIENT_SECRET
+        }
+      }
     },
   },
 
