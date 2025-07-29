@@ -2,7 +2,7 @@ import { BoxCcgAuth, BoxClient, BoxDeveloperTokenAuth, CcgConfig } from 'box-typ
 
 export default defineEventHandler(async (event) => {
   try {
-    console.log('--------------- Start box-typescript-sdk-gen ---------------');
+    console.log('--------------- Start box-typescript-sdk-gen ccg ---------------');
 
     const _runtimeConfig = useRuntimeConfig(event);
 
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     const testRootFolderItems = (await client.folders.getFolderItems('0'));
     console.log(testRootFolderItems);
 
-    console.log('--------------- End box-typescript-sdk-gen ---------------');
+    console.log('--------------- End box-typescript-sdk-gen ccg ---------------');
 
     return {
       statusCode: 200,

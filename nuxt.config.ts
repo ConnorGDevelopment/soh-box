@@ -30,6 +30,9 @@ export default defineNuxtConfig({
         sandbox: {
           ccg: {
             clientId: process.env.NUXT_PUBLIC_BOX_SANDBOX_CCG_CLIENT_ID
+          },
+          jwt: {
+            clientId: process.env.NUXT_PUBLIC_BOX_SANDBOX_JWT_CLIENT_ID,
           }
         }
       },
@@ -47,6 +50,16 @@ export default defineNuxtConfig({
       sandbox: {
         ccg: {
           clientSecret: process.env.NUXT_BOX_CLIENT_SANDBOX_CCG_CLIENT_SECRET
+        },
+        jwt: {
+          clientSecret: process.env.NUXT_BOX_SANDBOX_JWT_CLIENT_SECRET,
+          appAuth: {
+            publicKeyId: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PUBLIC_KEY_ID,
+            privateKey: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PRIVATE_KEY,
+            passphrase: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PASSPHRASE,
+          },
+          enterpriseId: process.env.NUXT_BOX_SANDBOX_JWT_ENTERPRISE_ID,
+          developerToken: process.env.NUXT_BOX_SANDBOX_JWT_DEVELOPER_TOKEN,
         }
       }
     },
