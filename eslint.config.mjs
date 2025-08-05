@@ -19,8 +19,19 @@ export default withNuxt()
     }),
     {
       rules: {
+        "@stylistic/function-paren-newline": [
+          "warn", {
+            minItems: 3,
+          },
+        ],
+        "@stylistic/operator-linebreak": [
+          "warn", "before",
+        ],
+        "@stylistic/multiline-ternary": [
+          "warn", "always-multiline",
+        ],
         "@stylistic/array-bracket-spacing": [
-          "error", "always",
+          "warn", "always",
         ],
         "@stylistic/jsx-one-expression-per-line": "off",
         "@stylistic/keyword-spacing": [
@@ -97,7 +108,9 @@ export default withNuxt()
         "@stylistic/semi": [
           "warn", "always",
         ],
-        "@stylistic/implicit-arrow-linebreak": "below",
+        "@stylistic/implicit-arrow-linebreak": [
+          "warn", "beside",
+        ],
       },
     },
     {

@@ -1,4 +1,8 @@
-import { BoxCcgAuth, BoxClient, BoxDeveloperTokenAuth, BoxJwtAuth, CcgConfig, JwtConfig } from 'box-typescript-sdk-gen';
+import {
+  BoxClient, BoxDeveloperTokenAuth,
+} from "box-typescript-sdk-gen";
+
+
 
 export default defineEventHandler(async (event) => {
   try {
@@ -15,23 +19,40 @@ export default defineEventHandler(async (event) => {
     // let auth = new BoxJwtAuth({ config })
 
     const params = await readBody(event);
-    let id = '0'
-    if (params && Object.hasOwn(params, 'id')) {
-      id = params.id
+    let id = "0";
+    if (params && Object.hasOwn(params, "id")) {
+      id = params.id;
     }
 
-    let auth = new BoxDeveloperTokenAuth({ token: _runtimeConfig.box.sandbox.jwt.developerToken });
+    const auth = new BoxDeveloperTokenAuth({
+      token: _runtimeConfig.box.sandbox.jwt.developerToken,
+    });
 
-    let client = new BoxClient({ auth });
+    const client = new BoxClient({
+      auth,
+    });
+
+    // TODO: Fix this, the folder grabbed by Id has the array fields you need, can find nested via getFolderItems
+    // const test = await client.folders.getFolderById("0");
 
     let folder = (await client.folders.getFolderItems(id)).entries;
 
+
+    folder = folder?.map((item) => ({
+      ...item,
+      itemCollection: {
+        entries: [
+        ],
+      },
+    }));
+
+
     return {
       statusCode: 200,
-      data: folder
-    }
+      data: folder,
+    };
   } catch (error) {
     console.log(error);
     setResponseStatus(event, 500);
   }
-})
+});
