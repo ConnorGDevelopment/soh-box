@@ -7,7 +7,7 @@ declare global {
       NUXT_GOOGLE_CLIENT_SECRET: string;
 
       NUXT_PUBLIC_BOX_CLIENT_ID: string;
-      NUXT_BOX_CLIENT_SECRET: string
+      NUXT_BOX_CLIENT_SECRET: string;
 
       NUXT_PUBLIC_BOX_KEY_ID: string;
       NUXT_BOX_PRIVATE_KEY: string;
