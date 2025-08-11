@@ -42,16 +42,26 @@ export default defineNuxtConfig({
       clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
     },
     box: {
-      clientSecret: process.env.NUXT_BOX_SANDBOX_JWT_CLIENT_SECRET,
-      appAuth: {
-        publicKeyId: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PUBLIC_KEY_ID,
-        privateKey: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PRIVATE_KEY,
-        passphrase: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PASSPHRASE,
-      },
-      enterpriseId: process.env.NUXT_BOX_SANDBOX_JWT_ENTERPRISE_ID,
-      developerToken: process.env.NUXT_BOX_SANDBOX_JWT_DEVELOPER_TOKEN,
+      clientSecret: process.env.NUXT_BOX_CLIENT_SECRET,
       privateKey: process.env.NUXT_BOX_PRIVATE_KEY,
       passphrase: process.env.NUXT_BOX_PASSPHRASE,
+      enterpriseId: process.env.NUXT_BOX_ENTERPRISE_ID,
+      developerToken: process.env.NUXT_BOX_DEVELOPER_TOKEN,
+      sandbox: {
+        ccg: {
+          clientSecret: process.env.NUXT_BOX_CLIENT_SANDBOX_CCG_CLIENT_SECRET
+        },
+        jwt: {
+          clientSecret: process.env.NUXT_BOX_SANDBOX_JWT_CLIENT_SECRET,
+          appAuth: {
+            publicKeyId: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PUBLIC_KEY_ID,
+            privateKey: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PRIVATE_KEY,
+            passphrase: process.env.NUXT_BOX_SANDBOX_JWT_APP_AUTH_PASSPHRASE,
+          },
+          enterpriseId: process.env.NUXT_BOX_SANDBOX_JWT_ENTERPRISE_ID,
+          developerToken: process.env.NUXT_BOX_SANDBOX_JWT_DEVELOPER_TOKEN,
+        }
+      }
     },
   },
 

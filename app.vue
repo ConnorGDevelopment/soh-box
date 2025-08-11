@@ -2,7 +2,7 @@
   <NuxtLayout>
     <v-app>
       <v-toolbar>
-        <v-toolbar-title @click="navigateTo('/')">
+        <v-toolbar-title>
           Stuart's Opera House Box Portal
         </v-toolbar-title>
       </v-toolbar>
@@ -10,12 +10,3 @@
     </v-app>
   </NuxtLayout>
 </template>
-
-<script
-  lang="ts"
-  setup
->
-
-import { navigateTo } from '#app';
-
-</script>
