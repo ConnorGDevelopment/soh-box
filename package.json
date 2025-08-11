@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .sandbox.jwt.env",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -15,19 +15,12 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@nuxt/eslint": "1.5.2",
-    "@nuxt/scripts": "0.11.9",
     "@sidebase/nuxt-auth": "^1.0.0",
-    "@unhead/vue": "^2.0.12",
-    "box-node-sdk": "^3.8.1",
     "box-typescript-sdk-gen": "^1.16.0",
     "eslint": "^9.31.0",
-    "google-auth-library": "^10.1.0",
     "next-auth": "4.21.1",
-    "nuxt": "^3.17.7",
-    "nuxt-typed-router": "4.0.1",
-    "prettier": "^3.6.2",
-    "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "nuxt": "^3.18.1",
+    "vue": "^3.5.17"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
