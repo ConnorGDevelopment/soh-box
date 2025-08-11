@@ -5,7 +5,7 @@
         <v-btn @click="signIn('google', { callbackUrl: '/box' })">
           Login with Google
         </v-btn>
-        <v-btn @click="navigateTo('/box')">
+        <v-btn :to="'/box'">
           To Box
         </v-btn>
       </v-card-text>
@@ -24,4 +24,8 @@ const {
 definePageMeta({
   auth: false
 });
+
+async function test() {
+  await signIn('google', { callbackUrl: '/box' })
+}
 </script>

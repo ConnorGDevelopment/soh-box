@@ -32,18 +32,16 @@ export default defineEventHandler(async (event) => {
     const client = new BoxClient({ auth });
 
     // TODO: Fix this, the folder grabbed by Id has the array fields you need, can find nested via getFolderItems
-    // const test = await client.folders.getFolderById("0");
 
-    let folder = (await client.folders.getFolderItems(id)).entries;
+    const folder = (await client.folders.getFolderById(id));
 
-
-    folder = folder?.map((item) => ({
-      ...item,
-      itemCollection: {
-        entries: [
-        ]
-      }
-    }));
+    // folder = folder?.map((item) => ({
+    //   ...item,
+    //   itemCollection: {
+    //     entries: [
+    //     ]
+    //   }
+    // }));
 
 
     return {
