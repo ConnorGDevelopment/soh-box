@@ -96,15 +96,6 @@ export default withNuxt()
         "@stylistic/object-curly-newline": [
           "warn", "always",
         ],
-        "@stylistic/indent": [
-          "warn",
-          2,
-          {
-            ignoredNodes: [
-              "ArrayExpression > ObjectExpression",
-            ],
-          },
-        ],
         "@stylistic/semi": [
           "warn", "always",
         ],

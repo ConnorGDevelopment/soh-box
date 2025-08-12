@@ -1,43 +1,28 @@
-import vuetify, {
-  transformAssetUrls,
-} from "vite-plugin-vuetify";
-
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    "@sidebase/nuxt-auth",
-    "@nuxt/eslint",
-    (_options, nuxt) => {
-      nuxt.hooks.hook("vite:extendConfig", (config) => {
-        config.plugins?.push(vuetify({
-          autoImport: true,
-        }));
-      });
-    },
-  ],
+  compatibilityDate: "2025-07-15",
   devtools: {
     enabled: true,
   },
+
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/scripts",
+    "@nuxt/content",
+    "@nuxt/test-utils",
+    "vuetify-nuxt-module",
+    "@sidebase/nuxt-auth",
+  ],
   runtimeConfig: {
+    authSecret: process.env.NUXT_AUTH_SECRET,
     public: {
       google: {
         clientId: process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID,
       },
       box: {
         clientId: process.env.NUXT_PUBLIC_BOX_CLIENT_ID,
-        boxKeyId: process.env.NUXT_PUBLIC_BOX_KEY_ID,
-        sandbox: {
-          ccg: {
-            clientId: process.env.NUXT_PUBLIC_BOX_SANDBOX_CCG_CLIENT_ID
-          },
-          jwt: {
-            clientId: process.env.NUXT_PUBLIC_BOX_SANDBOX_JWT_CLIENT_ID,
-          }
-        }
       },
     },
-    authSecret: process.env.NUXT_AUTH_SECRET,
     google: {
       clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
     },
@@ -50,30 +35,6 @@ export default defineNuxtConfig({
       },
       enterpriseId: process.env.NUXT_BOX_SANDBOX_JWT_ENTERPRISE_ID,
       developerToken: process.env.NUXT_BOX_SANDBOX_JWT_DEVELOPER_TOKEN,
-      privateKey: process.env.NUXT_BOX_PRIVATE_KEY,
-      passphrase: process.env.NUXT_BOX_PASSPHRASE,
-    },
-  },
-
-  build: {
-    transpile: [
-      "vuetify",
-    ],
-  },
-  compatibilityDate: "2025-05-15",
-  vite: {
-    vue: {
-      template: {
-        transformAssetUrls,
-      },
-    },
-    server: {
-      hmr: {
-        protocol: "http",
-        host: "localhost",
-        clientPort: 3000,
-        port: 3000,
-      },
     },
   },
   auth: {
@@ -82,18 +43,13 @@ export default defineNuxtConfig({
       type: "authjs",
       defaultProvider: "google",
     },
-    originEnvKey: process.env.NUXT_PUBLIC_AUTH_ORIGIN,
-    baseURL: process.env.NUXT_PUBLIC_BASE_URL,
-    globalAppMiddleware: {
-      isEnabled: true,
-    }
+    originEnvKey: process.env.NODE_ENV === "development" ? "http://localhost:300" : process.env.NUXT_PUBLIC_AUTH_ORIGIN,
+    baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000/api/auth" : process.env.NUXT_PUBLIC_BASE_URL,
+    globalAppMiddleware: true,
   },
   eslint: {
     config: {
       stylistic: true,
     },
   },
-  typescript: {
-    strict: true
-  }
 });

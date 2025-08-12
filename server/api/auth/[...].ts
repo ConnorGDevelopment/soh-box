@@ -2,17 +2,21 @@
 import {
   NuxtAuthHandler,
 } from "#auth";
-import Google, { type GoogleProfile } from "next-auth/providers/google";
+import Google from "next-auth/providers/google";
+import type {
+  GoogleProfile,
+} from "next-auth/providers/google";
+
 
 
 export default NuxtAuthHandler({
   // A secret string you define, to ensure correct encryption
   secret: useRuntimeConfig().authSecret,
   providers: [
-    // @ts-expect-error For SSR
+    // @ts-expect-error For SSR purposes
     Google.default({
-      clientId: useRuntimeConfig().public.google.clientId,
       clientSecret: useRuntimeConfig().google.clientSecret,
+      clientId: useRuntimeConfig().public.google.clientId,
       // authorization: {
       //   params: {
       //     prompt: "consent",
@@ -49,14 +53,16 @@ export default NuxtAuthHandler({
         return false;
       }
     },
-    jwt: async ({ token, account, profile }) => {
+    jwt: async ({
+      token, account, profile,
+    }) => {
       const richToken = token;
       if (account) {
         if (account.id_token) {
           richToken.id_token = account.id_token;
         }
 
-        if (account.provider === 'google') {
+        if (account.provider === "google") {
           const googleProfile = profile as GoogleProfile;
 
           if (googleProfile.sub) {
@@ -71,13 +77,15 @@ export default NuxtAuthHandler({
 
       return richToken;
     },
-    session: async ({ session, token }) => {
+    session: async ({
+      session, token,
+    }) => {
       return {
         ...session,
         id_token: token.id_token,
         sub: token.sub,
-        hd: token.hd
-      }
-    }
+        hd: token.hd,
+      };
+    },
   },
 });

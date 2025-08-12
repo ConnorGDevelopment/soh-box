@@ -16,6 +16,8 @@
   setup
 >
 
-import { navigateTo } from '#app';
+import {
+  navigateTo,
+} from "#app";
 
 </script>
