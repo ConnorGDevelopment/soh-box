@@ -3,8 +3,8 @@ import {
   JwtConfig, BoxJwtAuth,
 } from "box-typescript-sdk-gen";
 import {
-  serializeFolderFull,
-} from "box-typescript-sdk-gen/lib/schemas/folderFull.generated.js.js";
+  serializeItems,
+} from "box-typescript-sdk-gen/lib/schemas/items.generated.js.js";
 
 
 
@@ -34,13 +34,26 @@ export default defineEventHandler(async (event) => {
       ? params.id
       : "0";
 
-    const folder = await client.folders.getFolderById(id);
+    const folderItems = await client.folders.getFolderItems(id);
 
     // console.log(folder);
 
+
+    // const result = {
+    //   statusCode: 200,
+    //   data: folderItems,
+    //   toJSON() {
+    //     return {
+    //       statusCode: 200,
+    //       data: serializeItems(folderItems),
+    //     };
+    //   },
+    // };
+    // return result;
+
     return {
       statusCode: 200,
-      data: serializeFolderFull(folder),
+      data: folderItems,
     };
   } catch (error) {
     console.log(error);

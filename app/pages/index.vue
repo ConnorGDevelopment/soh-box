@@ -2,10 +2,7 @@
   <v-container>
     <v-card>
       <v-card-text>
-        <v-btn
-          :color="color"
-          @click="test()"
-        >
+        <v-btn @click="signIn('google', { callbackUrl: '/box' })">
           Login with Google
         </v-btn>
       </v-card-text>
@@ -20,17 +17,4 @@
 const {
   signIn,
 } = useAuth();
-
-
-const color = ref("red");
-const secret = computed(() => Math.random());
-
-async function test() {
-  // await signIn('google', { callbackUrl: '/box' })
-  if (color.value !== "red") {
-    color.value = "red";
-  } else {
-    color.value = "blue";
-  }
-}
 </script>

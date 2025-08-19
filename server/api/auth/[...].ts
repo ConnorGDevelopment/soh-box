@@ -38,7 +38,7 @@ export default NuxtAuthHandler({
         if (profile) {
           const googleProfile = profile as GoogleProfile;
           if (googleProfile.email_verified && googleProfile.hd === "stuartsoperahouse.org") {
-            console.log("Success");
+            console.log("Successful Sign-in", googleProfile.email);
             return true;
           } else {
             console.log("Profile Missing Properties");

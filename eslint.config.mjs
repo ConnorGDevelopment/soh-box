@@ -88,7 +88,9 @@ export default withNuxt()
           "warn",
         ],
         "@stylistic/array-bracket-newline": [
-          "warn", "always",
+          "warn", {
+            minItems: 2,
+          },
         ],
         "@stylistic/jsx-first-prop-new-line": [
           "warn", "multiline-multiprop",

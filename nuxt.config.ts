@@ -1,9 +1,10 @@
+import {
+  myVuetifyOptions,
+} from "./vuetify.options";
+
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
-  devtools: {
-    enabled: true,
-  },
 
   modules: [
     "@nuxt/eslint",
@@ -13,6 +14,9 @@ export default defineNuxtConfig({
     "vuetify-nuxt-module",
     "@sidebase/nuxt-auth",
   ],
+  devtools: {
+    enabled: true,
+  },
   runtimeConfig: {
     authSecret: process.env.NUXT_AUTH_SECRET,
     public: {
@@ -37,6 +41,7 @@ export default defineNuxtConfig({
       developerToken: process.env.NUXT_BOX_SANDBOX_JWT_DEVELOPER_TOKEN,
     },
   },
+  compatibilityDate: "2025-07-15",
   auth: {
     isEnabled: true,
     provider: {
@@ -51,5 +56,8 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
     },
+  },
+  vuetify: {
+    vuetifyOptions: myVuetifyOptions,
   },
 });
