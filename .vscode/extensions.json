@@ -1,0 +1,23 @@
+{
+    "recommendations": [
+        "formulahendry.auto-rename-tag",
+        "oven.bun-vscode",
+        "firefox-devtools.vscode-firefox-debug",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "sleistner.vscode-fileutils",
+        "fabiospampinato.vscode-highlight",
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        "davidanson.vscode-markdownlint",
+        "nuxtr.nuxtr-vscode",
+        "christian-kohler.path-intellisense",
+        "piyush-bhatt.vscode-port",
+        "syler.sass-indented",
+        "sibiraj-s.vscode-scss-formatter",
+        "jock.svg",
+        "simonsiefke.svg-preview",
+        "vue.volar",
+        "misterj.vue-volar-extention-pack"
+    ]
+}
