@@ -63,17 +63,13 @@ export default withNuxt()
             maxEOF: 1,
           },
         ],
-        "@stylistic/no-multi-spaces": [
-          "off",
-        ],
+        "@stylistic/no-multi-spaces": [ "off" ],
         "@stylistic/array-element-newline": [
           "warn", {
             ArrayExpression: "consistent",
           },
         ],
-        "@stylistic/newline-per-chained-call": [
-          "warn",
-        ],
+        "@stylistic/newline-per-chained-call": [ "warn" ],
         "@stylistic/padding-line-between-statements": [
           "error",
           {
@@ -84,9 +80,7 @@ export default withNuxt()
             next: "return",
           },
         ],
-        "@stylistic/object-property-newline": [
-          "warn",
-        ],
+        "@stylistic/object-property-newline": [ "warn" ],
         "@stylistic/array-bracket-newline": [
           "warn", {
             minItems: 2,
@@ -119,6 +113,8 @@ export default withNuxt()
   .override("nuxt/typescript/rules", {
     rules: {
       "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   })
   .override("nuxt/vue/rules", {
@@ -134,17 +130,13 @@ export default withNuxt()
       "import/consistent-type-specifier-style": [
         "error", "prefer-top-level",
       ],
-      "import/first": [
-        "error",
-      ],
+      "import/first": [ "error" ],
       "import/newline-after-import": [
         "warn", {
           count: 3,
         },
       ],
-      "import/no-mutable-exports": [
-        "error",
-      ],
+      "import/no-mutable-exports": [ "error" ],
 
     },
   });
