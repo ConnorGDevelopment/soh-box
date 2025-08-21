@@ -2,6 +2,20 @@ import type {
   VOptions,
 } from "vuetify-nuxt-module";
 
+// Stuart's Opera House Hexcode Colors:
+// -------------------------------------
+// Black: #424242 :  rgba(66,66,66,255)
+
+// Green: #a9dad6 :  rgba(169,218,214,255)
+
+// Red: #a53c40 : rgba(165,60,64,255)
+
+
+
+// Stuart's Opera House Font Style:
+// ---------------------------------
+// Texas Poppin's and Open Sans
+
 
 
 export const myVuetifyOptions: VOptions = {
@@ -55,14 +69,10 @@ export const myVuetifyOptions: VOptions = {
       color: "surface",
     },
     VCardTitle: {
-      style: [
-        "text-wrap: wrap;",
-      ],
+      style: [ "text-wrap: wrap;" ],
     },
     VCardActions: {
-      class: [
-        "justify-end",
-      ],
+      class: [ "justify-end" ],
     },
     VCardText: {
       VCard: {
@@ -72,9 +82,7 @@ export const myVuetifyOptions: VOptions = {
     },
     VChip: {
       rounded: "0",
-      class: [
-        "rounded",
-      ],
+      class: [ "rounded" ],
       elevation: 2,
       variant: "elevated",
       color: "primary",
