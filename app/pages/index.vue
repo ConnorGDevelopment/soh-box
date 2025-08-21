@@ -17,4 +17,8 @@
 const {
   signIn,
 } = useAuth();
+
+definePageMeta({
+  auth: false,
+});
 </script>
