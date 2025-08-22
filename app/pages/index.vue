@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-row>
-      <v-cols cols="12">
+      <v-col cols="12">
         Website
-      </v-cols>
+      </v-col>
     </v-row>
   </v-container>
 </template>
