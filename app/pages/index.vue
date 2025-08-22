@@ -2,7 +2,9 @@
   <v-container>
     <v-card>
       <v-card-text>
-        <v-btn @click="signIn('google', { callbackUrl: '/box' })">
+        <v-btn
+          @click="signIn('google', { callbackUrl: '/box' })"
+        >
           Login with Google
         </v-btn>
       </v-card-text>
@@ -22,3 +24,4 @@ definePageMeta({
   auth: false,
 });
 </script>
+

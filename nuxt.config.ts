@@ -6,6 +6,7 @@ import {
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+
   modules: [
     "@nuxt/eslint",
     "@nuxt/scripts",
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  css: [ "../assets/globals.scss" ],
   runtimeConfig: {
     authSecret: process.env.NUXT_AUTH_SECRET,
     public: {

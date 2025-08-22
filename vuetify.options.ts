@@ -2,6 +2,8 @@ import type {
   VOptions,
 } from "vuetify-nuxt-module";
 
+
+
 // Stuart's Opera House Hexcode Colors:
 // -------------------------------------
 // Black: #424242 :  rgba(66,66,66,255)
@@ -15,6 +17,7 @@ import type {
 // Stuart's Opera House Font Style:
 // ---------------------------------
 // Texas Poppin's and Open Sans
+// Font Family: Ultra, Athelas, Cambria, Georgia, Times New Roman
 
 
 
@@ -88,5 +91,9 @@ export const myVuetifyOptions: VOptions = {
       color: "primary",
     },
 
+
+
   },
+
+
 };
