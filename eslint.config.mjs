@@ -19,6 +19,11 @@ export default withNuxt()
     }),
     {
       rules: {
+        "@stylistic/jsx-self-closing-comp": [
+          "off", {
+            component: true,
+          },
+        ],
         "@stylistic/function-paren-newline": [
           "warn", {
             minItems: 3,
