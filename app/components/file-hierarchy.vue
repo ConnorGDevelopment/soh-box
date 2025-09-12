@@ -10,7 +10,7 @@
         <v-card-actions>
           <v-btn
             variant="tonal"
-            @click="item.expand"
+            @click="item.children"
           >
             Expand
           </v-btn>
@@ -25,22 +25,19 @@ import type {
   Items,
 } from "box-typescript-sdk-gen/lib/schemas/items.generated";
 import {
-  BoxScaffoldItem,
-} from "~/types/box-scaffold";
+  useBoxScaffoldItem,
+} from "#imports";
 
 
 
 const {
-  boxRoot,
+  folder,
 } = defineProps<{
-  boxRoot: Items;
+  folder: Items;
 }>();
 
 
-// TODO: Making better scaffolding in box-scaffold.ts
 const items = computed(() => {
-  return (boxRoot.entries
-    ? boxRoot.entries
-    : []).map((item) => new BoxScaffoldItem(item));
+  return folder.entries?.map((item) => useBoxScaffoldItem(item));
 });
 </script>
