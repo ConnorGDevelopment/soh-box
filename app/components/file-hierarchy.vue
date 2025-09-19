@@ -10,7 +10,7 @@
         <v-card-actions>
           <v-btn
             variant="tonal"
-            @click="item.children"
+            @click="async() => await item.children"
           >
             Expand
           </v-btn>

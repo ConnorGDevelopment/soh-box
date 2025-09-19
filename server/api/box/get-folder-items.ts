@@ -2,9 +2,6 @@ import {
   BoxClient, BoxDeveloperTokenAuth,
   JwtConfig, BoxJwtAuth,
 } from "box-typescript-sdk-gen";
-import {
-  serializeItems,
-} from "box-typescript-sdk-gen/lib/schemas/items.generated.js.js";
 
 
 

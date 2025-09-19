@@ -16,6 +16,7 @@ import type {
 // ---------------------------------
 // Texas Poppin's and Open Sans
 
+// Decorative font from Shirts: Pointedly Mad
 
 
 export const myVuetifyOptions: VOptions = {

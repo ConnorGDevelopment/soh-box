@@ -29,9 +29,10 @@ const {
 } = await useAsyncData<{
   statusCode: number;
   data: Items;
-}>("box-root", () => $fetch("/api/box/get-folder-items", {
-  method: "POST",
-}));
+}>("box-root", () => $fetch("/api/box/get-folder-items",
+  {
+    method: "POST",
+  }));
 
 // await callOnce(async () => {
 //   boxData.value.push(boxRoot.data);

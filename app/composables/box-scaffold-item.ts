@@ -1,26 +1,29 @@
 import type {
   FileFullOrFolderMiniOrWebLink,
 } from "box-typescript-sdk-gen/lib/schemas/fileFullOrFolderMiniOrWebLink.generated.js.js";
+import type getFolderItems from "~~/server/api/box/get-folder-items";
 
-// interface IBoxScaffoldItem {
-//   src: FileFullOrFolderMiniOrWebLink | undefined;
-//   name: string;
-//   id: string;
-//   childrenPromise: Promise<>
-// }
 
-export const useBoxScaffoldItem = (src: FileFullOrFolderMiniOrWebLink | undefined) => {
-  const _children = $fetch("/api/box/get-folder-items", {
-    method: "post",
-    params: {
-      id: src?.id || "0",
-    },
-  }).then((res) => res?.data.entries);
 
+export interface IBoxScaffoldItem {
+  src: FileFullOrFolderMiniOrWebLink | undefined;
+  name: string;
+  id: string;
+  children: ReturnType<typeof getFolderItems> | Awaited<ReturnType<typeof getFolderItems>> | null;
+}
+
+export const useBoxScaffoldItem = (src: FileFullOrFolderMiniOrWebLink | undefined): IBoxScaffoldItem => {
   return {
     src,
     name: src?.name || "",
     id: src?.id || "",
-    children: src?.type === "folder" ? _children : null,
+    children: src?.type === "folder"
+      ? $fetch("/api/box/get-folder-items", {
+          method: "post",
+          params: {
+            id: src?.id || "0",
+          },
+        })
+      : null,
   };
 };
