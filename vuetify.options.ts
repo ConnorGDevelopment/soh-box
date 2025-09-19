@@ -19,6 +19,7 @@ import type {
 // Texas Poppin's and Open Sans
 // Font Family: Ultra, Athelas, Cambria, Georgia, Times New Roman
 
+// Pointedly Mad - Decorative Font
 
 
 export const myVuetifyOptions: VOptions = {
