@@ -34,6 +34,8 @@ export default defineEventHandler(async (event) => {
       ? params.id
       : "0";
 
+    console.log(params);
+
     const folderItems = await client.folders.getFolderItems(id);
 
     // console.log(folder);
