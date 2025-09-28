@@ -24,15 +24,8 @@ export default defineEventHandler(async (event) => {
         }),
     });
 
-    const params = await readBody(event);
-
-    const id = (
-      params && Object.hasOwn(params, "id"))
-      ? params.id
-      : "0";
-
-    console.log(params);
-
+    const body = await readBody(event);
+    const id = body?.id ? body.id : "0";
     const folderItems = await client.folders.getFolderItems(id);
 
     // console.log(folder);
