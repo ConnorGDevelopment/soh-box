@@ -5,17 +5,7 @@
       :key="item.id"
       cols="12"
     >
-      <v-card>
-        <v-card-title> {{ item.name }} </v-card-title>
-        <v-card-actions>
-          <v-btn
-            variant="tonal"
-            @click="async() => await item.getChildren()"
-          >
-            Expand
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+      <FileExterior :item="item" />
     </v-col>
   </v-row>
 </template>

@@ -16,13 +16,7 @@ import type {
   Items,
 } from "box-typescript-sdk-gen/lib/schemas/items.generated.js.js";
 
-// const boxRoot = await useAsyncData("box-root", async () => {
-//   const _boxRoot = await $fetch("/api/box/get-folder-items", {
-//     method: "POST",
-//   });
 
-//   return _boxRoot;
-// });
 
 const {
   data: boxRootFolder,
@@ -33,10 +27,4 @@ const {
   {
     method: "POST",
   }));
-
-// await callOnce(async () => {
-//   boxData.value.push(boxRoot.data);
-// }, {
-//   mode: "render",
-// });
 </script>

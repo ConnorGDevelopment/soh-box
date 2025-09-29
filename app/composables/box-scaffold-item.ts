@@ -15,18 +15,26 @@ export class BoxScaffoldItem {
   src: FileFullOrFolderMiniOrWebLink | undefined;
   name: string;
   id: string;
-  children: ReturnType<typeof getFolderItems> | Awaited<ReturnType<typeof getFolderItems>> | null = null;
-  async getChildren() {
+  childSrc: ReturnType<typeof getFolderItems> | Awaited<ReturnType<typeof getFolderItems>> | null = null;
+  async fetchChildren() {
     if(this.src?.type === "folder") {
-      this.children = await $fetch("/api/box/get-folder-items", {
+      this.childSrc = await $fetch("/api/box/get-folder-items", {
         method: "post",
         body: {
           id: this.id,
         },
       });
-      console.log(this.children);
+      console.log(this.childSrc);
     } else {
-      this.children = null;
+      this.childSrc = null;
+    }
+  };
+
+  get children() {
+    if(this.childSrc !== null && this.childSrc !== undefined && "data" in this.childSrc && this.childSrc.data.entries !== undefined) {
+      return this.childSrc.data.entries;
+    } else {
+      return [] as readonly FileFullOrFolderMiniOrWebLink[];
     }
   }
 }
